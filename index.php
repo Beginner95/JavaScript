@@ -6,8 +6,7 @@
 </head>
 <body>
 	<p>Начало документа...</p>
-	<script>
-		alert( 'Я - JavaScript!' );
-	</script>
+
+	<script src="/js/alert.js"></script>
 </body>
 </html>
