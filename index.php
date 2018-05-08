@@ -7,6 +7,6 @@
 <body>
 	<p>Начало документа...</p>
 
-	<script src="/js/alert.js"></script>
+	<script src="/js/uibasic.js"></script>
 </body>
 </html>
