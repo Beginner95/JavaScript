@@ -7,6 +7,6 @@
 <body>
 	<p>Начало документа...</p>
 
-	<script src="/js/if.js"></script>
+	<script src="/js/logical-ops.js"></script>
 </body>
 </html>
