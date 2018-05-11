@@ -7,6 +7,6 @@
 <body>
 	<p>Начало документа...</p>
 
-	<script src="/js/function-basics.js"></script>
+	<script src="/js/recursion.js"></script>
 </body>
 </html>
