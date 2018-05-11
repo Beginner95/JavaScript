@@ -1,10 +1,11 @@
 'use strict';
 
-function sumTo(n) {
-    if (n == 1) {
-        return n;
+function factorial(n) {
+    if (n != 1) {
+        return n * factorial(n - 1);
     }
-    return n + sumTo( n - 1 );
+    
+    return n;
 }
 
-alert(sumTo(3));
+alert(factorial(5));
