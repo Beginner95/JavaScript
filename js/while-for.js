@@ -8,6 +8,13 @@ for (let i = 2; i <= 10; i++){
 let j = 0;
 
 while (j < 3) {
-    alert( 'номер ' + j + '!');
+    //alert( 'номер ' + j + '!');
     j++;
 }
+
+let num = 0;
+
+while (num < 100 && num != null) {
+    num = prompt('Введите число больше 100', '');
+}
+
