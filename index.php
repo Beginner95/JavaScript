@@ -7,6 +7,6 @@
 <body>
 	<p>Начало документа...</p>
 
-	<script src="/js/while-for.js"></script>
+	<script src="/js/switch.js"></script>
 </body>
 </html>
