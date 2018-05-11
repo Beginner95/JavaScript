@@ -7,6 +7,6 @@
 <body>
 	<p>Начало документа...</p>
 
-	<script src="/js/switch.js"></script>
+	<script src="/js/function-basics.js"></script>
 </body>
 </html>
