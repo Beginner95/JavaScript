@@ -1,11 +1,13 @@
 'use strict';
 
-function factorial(n) {
-    if (n != 1) {
-        return n * factorial(n - 1);
-    }
+function fib(n) {
+    let a = 1, b = 1;
     
-    return n;
+    for (let i = 3; i <= n; i++) {
+        let c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
 }
-
-alert(factorial(5));
+alert(fib(77));
