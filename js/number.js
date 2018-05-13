@@ -1,6 +1,11 @@
 'use strict';
 
-let a = 0.1;
-let b = 0.2;
+let getDecimal = function(a) {
+    a = a % 1;
+    if (a < 0) {
+        a = +(a * (-1)).toFixed(2);
+    }
+    return a;
+}
 
-alert(Math.round((a + b) * 10) / 10);
+alert(getDecimal(-55.56565655));
