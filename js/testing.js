@@ -12,8 +12,8 @@ describe("getDecimal", function() {
         assert.equal(getDecimal(1), 0);
     });
     
-    it('Получаю дробную часть от -55.55 ожидаю 0.57', function() {
-        assert.equal(getDecimal(-55.56565655), 0.57);
+    it('Получаю дробную часть от -55.55 ожидаю -0.57', function() {
+        assert.equal(getDecimal(-55.56565655), -0.57);
     });
   
 });
