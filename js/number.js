@@ -1,6 +1,6 @@
 'use strict';
 
-let a = +prompt('Введите первое число', '');
-let b = +prompt('Введите второе число', '');
+let a = 0.1;
+let b = 0.2;
 
-alert(a + b);
+alert(Math.round((a + b) * 10) / 10);
