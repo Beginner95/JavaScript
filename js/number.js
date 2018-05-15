@@ -1,5 +1,5 @@
 'use strict';
 
-let max = 10;
+let max = 10, min = 3;
 
-alert( Math.random() * max );
+alert( min + Math.random() * (max - min) );
