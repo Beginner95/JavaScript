@@ -1,7 +1,12 @@
 'use strict';
 
-let ucFirst = function(str) {
-    return (str) ? str[0].toUpperCase() + str.slice(1) : str;
+let checkSpam = function(str) {
+    
+    let lowerStr = str.toLowerCase();
+    
+    return !!(~lowerStr.indexOf('js') || ~lowerStr.indexOf('css'));
 }
 
-alert( ucFirst('test') );
+alert( checkSpam('Я учу css') );
+alert( checkSpam('CssJs') );
+alert( checkSpam("innocent rabbit") );
