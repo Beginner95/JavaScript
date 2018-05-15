@@ -1,5 +1,8 @@
 'use strict';
 
-let max = 10, min = 3;
+let randomInteger = function(min, max) {
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);   
+}
 
-alert( min + Math.random() * (max - min) );
+alert( randomInteger(2, 8) );
