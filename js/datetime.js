@@ -1,4 +1,11 @@
 'use strict';
 
-let d = new Date(2012, 1, 20, 3, 12);
-alert( d );
+let getWeekDate = function(date) {
+    let days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+    
+    return days[date.getDay()];
+}
+
+let date = new Date(2012, 0, 3);
+
+alert( getWeekDate(date) );
