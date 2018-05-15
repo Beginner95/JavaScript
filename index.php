@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/array.js"></script>
+	<script src="/js/array-methods.js"></script>
 </body>
 </html>
