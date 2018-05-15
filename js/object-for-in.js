@@ -1,23 +1,22 @@
 'use strict';
 
-let salaries = {
-    'Vasy': 10,
-    'Pety': 30,
-    'Hope': 6
-}
-
-let sum = 0;
-let name = '';
-
-for (let key in salaries) {
-    
-    if (sum < salaries[key]) {
+let multiplyNumeric = function(obj) {
+    for (let key in obj) {
         
-        sum = salaries[key];
-        name = key;
+        if (isNaN(obj[key])) {
+            continue;
+        }
         
+        obj[key] *= 2;
     }
-    
 }
 
-alert( name || 'Нет сотрудников' );
+let menu = {
+  width: 200,
+  height: 30.20,
+  title: "My menu"
+};
+
+multiplyNumeric(menu);
+
+console.log(menu);
