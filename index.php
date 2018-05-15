@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/string.js"></script>
+	<script src="/js/object.js"></script>
 </body>
 </html>
