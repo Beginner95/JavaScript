@@ -1,7 +1,19 @@
 'use strict';
 
-let styles = ['Джаз', 'Блюз', 'Классика', 'Рок-н-Ролл', 'Регги'];
+let num = [];
 
-let rand = Math.floor(Math.random() * styles.length);
+while (true) {
+    let value = prompt('Введите число', 0);
+    
+    if ('' === value || null === value || isNaN(value)) break;
+    
+    num.push(+value);
+}
 
-alert( styles[rand] );
+let sum = 0;
+
+for (let i = 0; i < num.length; i++) {
+    sum += num[i];
+}
+
+alert( sum );
