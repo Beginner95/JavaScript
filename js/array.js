@@ -2,4 +2,6 @@
 
 let goods = ['One', 'Two', 'Three', 'Four', 'Five'];
 
-alert( goods[goods.length - 1] );
+goods.push('Six');
+
+alert( goods );
