@@ -1,7 +1,13 @@
 'use strict';
 
-let goods = ['One', 'Two', 'Three', 'Four', 'Five'];
+let styles = ['Джаз', 'Блюз'];
 
-goods.push('Six');
+styles.push('Рок-н-Ролл');
 
-alert( goods );
+styles[styles.length - 2] = 'Классика';
+
+alert( styles.shift() );
+
+styles.unshift("Рэп", "Регги");
+
+console.log(styles);
