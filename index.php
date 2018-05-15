@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/arguments-pseudoarray.js"></script>
+	<script src="/js/datetime.js"></script>
 </body>
 </html>
