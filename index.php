@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/object-for-in.js"></script>
+	<script src="/js/array.js"></script>
 </body>
 </html>
