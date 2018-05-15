@@ -1,19 +1,19 @@
 'use strict';
 
-let num = [];
+let find = function(array, value) {
+  if (array.indexOf) {
+    return array.indexOf(value);
+  }
 
-while (true) {
-    let value = prompt('Введите число', 0);
-    
-    if ('' === value || null === value || isNaN(value)) break;
-    
-    num.push(+value);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) return i;
+  }
+
+  return -1;
 }
 
-let sum = 0;
+let arr = ['a', -1, 2, 'b'];
 
-for (let i = 0; i < num.length; i++) {
-    sum += num[i];
-}
+let index = find(arr, 2);
 
-alert( sum );
+alert( index );
