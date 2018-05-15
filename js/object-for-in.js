@@ -1,17 +1,15 @@
 'use strict';
 
-let isEmpty = function(obj) {
-    
-    for (let key in obj) {
-        return false;
-    }
-    return true;
+let salaries = {
+    'Vasy': 10,
+    'Pety': 3,
+    'Hope': 6
 }
 
-let schedule = {};
+let sum = 0;
 
-alert( isEmpty(schedule) ); // true
+for (let key in salaries) {
+    sum += salaries[key];
+}
 
-schedule["8:30"] = "подъём";
-
-alert( isEmpty(schedule) ); // false
+alert(sum);
