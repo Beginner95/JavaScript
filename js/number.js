@@ -1,7 +1,5 @@
 'use strict';
 
-let getDecimal = function(a) {
-   return +(a % 1).toFixed(2);
-}
+let max = 10;
 
-alert(getDecimal(-55.56565655));
+alert( Math.random() * max );
