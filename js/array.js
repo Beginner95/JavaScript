@@ -1,13 +1,7 @@
 'use strict';
 
-let styles = ['Джаз', 'Блюз'];
+let styles = ['Джаз', 'Блюз', 'Классика', 'Рок-н-Ролл', 'Регги'];
 
-styles.push('Рок-н-Ролл');
+let rand = Math.floor(Math.random() * styles.length);
 
-styles[styles.length - 2] = 'Классика';
-
-alert( styles.shift() );
-
-styles.unshift("Рэп", "Регги");
-
-console.log(styles);
+alert( styles[rand] );
