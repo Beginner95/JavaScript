@@ -1,11 +1,19 @@
 'use strict';
 
-let sum = function(a) {
+let makeBuffer = function() {
+    let txt = '';
     
-    return function(b) {
-        return a + b;
+    return function(str) {
+        if (arguments.length == 0) {
+            return txt;
+        }
+        txt += str;
     }
-    
 }
 
-alert( sum(4)(2) );
+let buffer = makeBuffer();
+buffer(0.5);
+buffer('test');
+buffer(5);
+console.log(buffer());
+
