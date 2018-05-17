@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/datetime.js"></script>
+	<script src="/js/closures-usage.js"></script>
 </body>
 </html>
