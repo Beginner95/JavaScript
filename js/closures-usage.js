@@ -1,26 +1,38 @@
 'use strict';
 
-let makeBuffer = function() {
-    let txt = '';
+let users = [
+    {
+        name: 'Vasy',
+        surname: 'Vasiliev',
+        age: 20
+    },
     
-    let buffer = function(str) {
-        if (arguments.length == 0) {
-            return txt;
-        }
-        txt += str;
-    };
+    {
+        name: 'Pety',
+        surname: 'Petrov',
+        age: 33
+    },
     
-    buffer.clear = function() {
-        txt = '';
+    {
+        name: 'Ivan',
+        surname: 'Ivanov',
+        age: 27
+    },
+    
+    {
+        name: 'Philip',
+        surname: 'Samsungov',
+        age: 18
     }
-    return buffer;
+];
+
+let byField = function(field) {
+    return function(a, b) {
+        return a[field] > b[field] ? 1 : -1;
+    }
 };
 
-let buffer = makeBuffer();
-buffer(0.5);
-buffer('test');
-buffer(5);
-console.log(buffer());
-buffer.clear();
-console.log(buffer());
-
+users.sort(byField('age'));
+users.forEach(function(user) {
+    console.log(user.name);
+});
