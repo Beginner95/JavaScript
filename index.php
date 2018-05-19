@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/object-methods.js"></script>
+	<script src="/js/object-conversion.js"></script>
 </body>
 </html>
