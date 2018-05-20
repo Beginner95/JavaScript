@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/constructor-new.js"></script>
+	<script src="/js/descriptors-getters-setters.js"></script>
 </body>
 </html>
