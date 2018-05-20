@@ -1,23 +1,14 @@
 'use strict';
 
-let Calculator = function() {
+let Accumulator = function(startingValue) {
+    this.value = startingValue;
+    
     this.read = function() {
-        this.a = +prompt('a?', 0);
-        this.b = +prompt('b?', 0);
+        this.value += +prompt('Значение для добавления', '');
     };
-    
-    this.sum = function() {
-        return this.a + this.b;
-    };
-    
-    this.mul = function() {
-        return this.a * this.b;
-    }
 };
 
-let calc = new Calculator();
-
-calc.read();
-
-alert( 'Сумма = ' + calc.sum() );
-alert( 'Произведение = ' + calc.mul() );
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+alert( accumulator.value );
