@@ -1,19 +1,9 @@
 'use strict';
 
-let Article = function() {
-    this.created = new Date();
-    
-    Article.count++;
-    Article.last = this.created;
+let sum = function() {
+    return [].reduce.call(arguments, function(a, b) {
+        return a + b;
+    });
 };
 
-Article.count = 0;
-
-Article.showStats = function() {
-    alert( 'Всего: ' + this.count + ', Последняя: ' + this.last );
-};
-
-new Article();
-new Article();
-
-Article.showStats();
+alert( sum(5, 5, 6) );
