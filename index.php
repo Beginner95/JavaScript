@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/static-properties-and-methods.js"></script>
+	<script src="/js/class-instanceof.js"></script>
 </body>
 </html>
