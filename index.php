@@ -5,6 +5,6 @@
 	<title>Привет мир!</title>    
 </head>
 <body>
-	<script src="/js/class-instanceof.js"></script>
+	<script src="/js/promise.js"></script>
 </body>
 </html>
