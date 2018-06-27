@@ -7,8 +7,9 @@
 </head>
 <body>
 
-    <br>    
-	<script src="/js/dom-polyfill.js"></script>
+    <div id="widget" data-widget-name="menu">Выберите жанр</div>
+    
+	<script src="/js/attributes-and-custom-properties.js"></script>
     
 </body>
 </html>
