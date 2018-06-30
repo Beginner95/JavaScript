@@ -9,8 +9,6 @@
 <div>Это</div>
 <div>Все</div>
 <div>Элементы DOM</div>
-    
-	<script src="/js/modifying-document.js"></script>
-    
+<script src="/js/modifying-document.js"></script>
 </body>
 </html>
