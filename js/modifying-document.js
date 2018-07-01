@@ -1,11 +1,19 @@
 'use strict';
 
-let removeChildren = function(elem) {
-    while (elem.lastChild) {
-        elem.removeChild(elem.lastChild);
+let ul = document.createElement('ul');
+
+document.body.appendChild(ul);
+
+while (true) {
+    let data = prompt('Введите текст для пункта списка', '');
+    
+    if (!data) {
+        break;
     }
+    
+    let li = document.createElement('li');
+    
+    li.appendChild(document.createTextNode(data));
+    
+    ul.appendChild(li);
 }
-
-removeChildren(table);
-
-removeChildren(ol);
