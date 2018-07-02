@@ -1,3 +1,8 @@
-.external {
-    background-color: yellow
-  }
+.notice {
+  padding: 5px;
+  border: 1px solid black;
+  font: normal 20px Arial;
+  background: white;
+  text-align: center;
+  width: 150px;
+}
