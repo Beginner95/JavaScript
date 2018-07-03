@@ -1,19 +1,17 @@
 'use strict';
 
-let elem = document.createElement('div');
+let div = document.getElementById('moving-div');
 
-elem.style.overflowY = 'scroll';
-elem.style.height = '100px';
-elem.style.width = '100px';
-elem.style.visibility = 'hidden';
+let cloneDiv = document.createElement('div');
 
-document.body.appendChild(elem);
+cloneDiv.style.height = div.offsetHeight + 'px';
 
-console.log(elem.offsetWidth);
-console.log(elem.clientWidth);
+let computedStyle = div.currentStyle || getComputedStyle(div, '');
 
-let scrollWidth = elem.offsetWidth - elem.clientWidth;
+cloneDiv.style.marginTop = computedStyle.marginTop;
+cloneDiv.style.marginBottom = computedStyle.marginBottom;
 
-document.body.removeChild(elem)
+document.body.insertBefore(cloneDiv, div);
 
-console.log(scrollWidth);
+div.style.position = 'absolute';
+div.style.right = div.style.top = 0;
