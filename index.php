@@ -6,15 +6,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-Before Before Before
 
-<div id="moving-div">
-Text Text Text<br>
-Text Text Text<br>
-</div>
-
-After After After
-
-<script src="/js/metrics.js"></script>
+<script src="/js/metrics-window.js"></script>
 </body>
 </html>
