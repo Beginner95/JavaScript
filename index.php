@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Размеры и прокрутка элементов</title>
+	<title>Введение в браузерные события</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<input id="btn" type="button" value="Нажмите, чтобы спрятать текст">
+<div id="txt">Текст</div>
 
-<script src="/js/metrics-window.js"></script>
+<script src="/js/introduction-browser-events.js"></script>
 </body>
 </html>
