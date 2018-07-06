@@ -1,3 +1,5 @@
+'use strict';
+
 document.getElementById('btn').onclick = function() {
-    document.getElementById('txt').style.display = 'none';
+    this.style.display = 'none';
 }
