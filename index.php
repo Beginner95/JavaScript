@@ -6,8 +6,16 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<input id="btn" type="button" value="Нажмите, чтобы спрятать текст">
-<div id="txt">Текст</div>
+
+<div id="menu" class="menu">
+    <span class="title">Меню</span>
+    <ul>
+      <li>Beginner95</li>
+      <li>Vaha</li>
+      <li>Test</li>
+    </ul>
+
+  </div>
 
 <script src="/js/introduction-browser-events.js"></script>
 </body>
