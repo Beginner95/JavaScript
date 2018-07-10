@@ -1,8 +1,12 @@
 'use strict';
 
-let menu = document.getElementById('menu');
-var title = document.querySelector('.menu');
+let btns = document.querySelectorAll('#messages-container .remove-button');
 
-title.onclick = function() {
-    menu.classList.toggle('open');
-};
+for (let i = 0; i < btns.length; i++) {
+    let btn = btns[i];
+    
+    btn.onclick = function() {
+        let el = this.parentNode;
+        el.parentNode.removeChild(el);
+    }
+}
