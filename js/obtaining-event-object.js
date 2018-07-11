@@ -17,9 +17,13 @@ field.onclick = function(event) {
         top: event.clientY - fieldInnerCoords.top - ball.clientHeight / 2
     };
     
-    if (ballCoords.left < 0) ballCoords.left = 0;
+    if (ballCoords.left < 0) {
+        ballCoords.left = 0;
+    }
     
-    if (ballCoords.top < 0) ballCoords.top = 0;
+    if (ballCoords.top < 0) {
+        ballCoords.top = 0;
+    }
     
     if (ballCoords.left + ball.clientWidth > field.clientWidth) {
         ballCoords.left = field.clientWidth - ball.clientWidth;
@@ -32,5 +36,4 @@ field.onclick = function(event) {
     ball.style.left = ballCoords.left + 'px';
     ball.style.top = ballCoords.top + 'px';
     
-    console.log(ballCoords);
 }
