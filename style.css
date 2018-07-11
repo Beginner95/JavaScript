@@ -1,36 +1,22 @@
-body {
-  margin: 10px auto;
-  width: 470px;
+#field {
+    width: 500px;
+    height: 450px;
+    border: 10px groove black;
+    background-color: #00FF00;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-h3 {
-  margin: 0;
-  padding-bottom: .3em;
-  padding-right: 20px;
-  font-size: 1.1em;
-}
-
-p {
-  margin: 0;
-  padding: 0 0 .5em;
-}
-
-.pane {
-  background: #ddd;
-  padding: 10px 20px 10px;
-  border-top: solid 2px red;
-  position: relative;
-}
-
-.remove-button {
-  position: absolute;
-  font-size: 110%;
-  top: 0;
-  color: darkred;
-  right: 10px;
-  display: block;
-  width: 24px;
-  height: 24px;
-  border: none;
-  background: transparent;
+#ball {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
 }
