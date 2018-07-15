@@ -1,9 +1,31 @@
 'use strict';
 
-let container = document.getElementById('messages-container');
+let tree = document.getElementsByTagName('ul')[0];
+let treeLis = tree.getElementsByTagName('li');
 
-container.onclick = function(event) {
-  if (!event.target.classList.contains('remove-button')) return;
+for (let i = 0; i < treeLis.length; i++) {
+    
+    let li = treeLis[i];
+    let span = document.createElement('span');
+    
+    li.insertBefore(span, li.firstChild);
+    span.appendChild(span.nextSibling);
+    
+}
 
-  event.target.parentNode.hidden = !event.target.parentNode.hidden;
+tree.onclick = function(event) {
+    
+    let target = event.target;
+    
+    if (target.tagName != 'SPAN'){
+        return;
+    }
+    
+    let childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
+    
+    if (!childrenContainer){
+        return;
+    }
+    
+    childrenContainer.hidden = !childrenContainer.hidden;
 }
