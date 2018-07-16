@@ -7,43 +7,34 @@
 </head>
 <body>
 
-<ul class="tree">
-    <li>Животные
-        <ul>
-            <li>Млекопитающие
-                <ul>
-                    <li>Коровы</li>
-                    <li>Ослы</li>
-                    <li>Собаки</li>
-                    <li>Тигры</li>
-                </ul>
-            </li>
-            <li>Другие
-                <ul>
-                    <li>Змеи</li>
-                    <li>Птицы</li>
-                    <li>Ящерицы</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    
-    <li>Рыбы
-        <ul>
-            <li>Аквариумные
-                <ul>
-                <li>Гуппи</li>
-                <li>Скалярии</li>
-                </ul>
-            </li>
-            <li>Морские
-                <ul>
-                    <li>Морская форель</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-  </ul>
+<table id="table">
+
+    <thead>
+        <tr>
+            <th data-type="number" title="Сортировать по номеру">№</th>
+            <th data-type="string" title="Сортировать по названию">Название</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>4</td>
+            <td>Тест</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Грозный</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Москва</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Грузия</td>
+        </tr>
+        
+    </tbody>
+</table>
 
 <script src="/js/event-delegation.js"></script>
 </body>

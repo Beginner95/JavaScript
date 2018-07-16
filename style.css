@@ -1,21 +1,9 @@
-.tree {
-    background: #ddd;
+table {
+    border: 1px solid #ddd;
+    width: 150px;
+    margin: 0 auto;
 }
 
-.tree li {
+table th {
     cursor: pointer;
-    padding: 5px 0;
-}
-
-.tree ul {
-    background: #cecece;
-    
-}
-
-.tree ul ul {
-    background: #999999;
-}
-
-.tree ul ul  li{
-    cursor: text;
 }

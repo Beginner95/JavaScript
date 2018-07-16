@@ -1,31 +1,39 @@
 'use strict';
 
-let tree = document.getElementsByTagName('ul')[0];
-let treeLis = tree.getElementsByTagName('li');
+let table = document.getElementById('table');
 
-for (let i = 0; i < treeLis.length; i++) {
+table.onclick = function(e) {
     
-    let li = treeLis[i];
-    let span = document.createElement('span');
+    if (e.target.tagName != 'TH') return;
+    sortTable(e.target.cellIndex, e.target.getAttribute('data-type'));
     
-    li.insertBefore(span, li.firstChild);
-    span.appendChild(span.nextSibling);
-    
-}
+};
 
-tree.onclick = function(event) {
+let sortTable = function(colNum, type) {
     
-    let target = event.target;
+    let tbody = table.getElementsByTagName('tbody')[0];
+    let rowsArray = [].slice.call(tbody.rows);
+    let compare = null;
     
-    if (target.tagName != 'SPAN'){
-        return;
+    switch (type) {
+        case 'number':
+            compare = function(rowA, rowB) {
+                return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+            };
+            break;      
+        case 'string':
+            compare = function(rowA, rowB) {
+                return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML;
+            };
+            break;
     }
     
-    let childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
+    rowsArray.sort(compare);
+    table.removeChild(tbody);
     
-    if (!childrenContainer){
-        return;
+    for (let i = 0; i < rowsArray.length; i++) {
+        tbody.appendChild(rowsArray[i]);
     }
     
-    childrenContainer.hidden = !childrenContainer.hidden;
-}
+    table.appendChild(tbody);
+};
