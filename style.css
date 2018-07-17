@@ -1,9 +1,13 @@
-table {
-    border: 1px solid #ddd;
-    width: 150px;
-    margin: 0 auto;
+body {
+    height: 1500px;
 }
 
-table th {
-    cursor: pointer;
+.msg-title {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    color: #000;
+    background: #fff;
+    position: fixed;
+    padding: 10px;
 }
