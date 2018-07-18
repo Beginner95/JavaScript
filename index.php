@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<p>Наводим на ссылку</p>
-<a href="#" data-title="Проходим тему, Приём проектирования поведение">Подсказка</a>
 
-<script src="/js/behavior.js"></script>
+<div id="contents">
+    Изучить <a href="http://learn.javascript.ru/">JavaScript</a>
+</div>
+
+<script src="/js/default-browser-action.js"></script>
 </body>
 </html>
