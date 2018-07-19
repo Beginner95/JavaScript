@@ -6,11 +6,20 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<pre>
+Клик на элементе выделяет только его.
+Ctrl(Cmd)+Клик добавляет/убирает элемент из выделенных.
+Shift+Клик добавляет промежуток от последнего кликнутого к выделению.
+</pre>
 
-<div id="contents">
-    Изучить <a href="http://learn.javascript.ru/">JavaScript</a>
-</div>
+<ul>
+    <li>Кристофер Робин</li>
+    <li>Винни-Пух</li>
+    <li>Ослик Иа</li>
+    <li>Мудрая Сова</li>
+    <li>Кролик. Просто кролик.</li>
+</ul>
 
-<script src="/js/default-browser-action.js"></script>
+<script src="/js/mouse-clicks.js"></script>
 </body>
 </html>
