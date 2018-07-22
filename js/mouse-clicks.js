@@ -1,66 +1,31 @@
 'use strict';
 
-let ul = document.querySelector('ul');
+let tree = document.querySelector('.tree');
 
-let lastClickedLi = null;
-
-// --- обработчики ---
-
-ul.onclick = function(event) {
-    let target = event.target;
-
-    // возможно, клик был внутри списка UL, но вне элементов LI
-    if (target.tagName != "LI") return;
-
-    // для Mac проверяем Cmd, т.к. Ctrl + click там контекстное меню
-    if (event.metaKey || event.ctrlKey) {
-        toggleSelect(target);
-    } else if (event.shiftKey) {
-        selectFromLast(target);
-    } else {
-        selectSingle(target);
-    }
-
-    lastClickedLi = target;
+let isOverTitle = function(evt, li) {
+    let titleWrapper = document.createElement('span');
+    let titleTextNode = li.firstChild;
+    
+    li.insertBefore(titleWrapper, titleTextNode);
+    titleWrapper.appendChild(titleTextNode);
+    
+    let isClickOnTitle = (document.elementFromPoint(evt.clientX, evt.clientY) == titleWrapper);
+    
+    titleWrapper.removeChild(titleWrapper.firstChild);
+    li.replaceChild(titleTextNode, titleWrapper);
+    
+    return isClickOnTitle;
 }
 
-ul.onmousedown = function() {
-    return false;
-};
-
-// --- функции для выделения ---
-
-function toggleSelect(li) {
-    li.classList.toggle('selected');
-}
-
-function selectFromLast(target) {
-    let startElem = lastClickedLi || ul.children[0];
-
-    let isLastClickedBefore = startElem.compareDocumentPosition(target) & 4;
-
-    if (isLastClickedBefore) {
-        for (let elem = startElem; elem != target; elem = elem.nextElementSibling) {
-            elem.classList.add('selected');
-        }
-    } else {
-        for (let elem = startElem; elem != target; elem = elem.previousElementSibling) {
-            elem.classList.add('selected');
-        }
-    }
-    elem.classList.add('selected');
-}
-
-
-
-
-function deselectAll() {
-    for (let i = 0; i < ul.children.length; i++) {
-        ul.children[i].classList.remove('selected');
-    }
-}
-
-function selectSingle(li) {
-    deselectAll();
-    li.classList.add('selected');
+tree.onclick = function(evt) {
+    let e = evt || event;
+    let target = e.target || e.srcElement;
+    
+    if (!isOverTitle(e, target)) return;
+    
+    let node = target.getElementsByTagName('ul')[0];
+    
+    if (!node) return;
+    
+    node.style.display = node.style.display ? '' : 'none';
 }

@@ -1,7 +1,21 @@
-.selected {
-    background: #ccc;
+.tree {
+    background: #ddd;
 }
 
-li {
+.tree li {
     cursor: pointer;
+    padding: 5px 0;
+}
+
+.tree ul {
+    background: #cecece;
+    
+}
+
+.tree ul ul {
+    background: #999999;
+}
+
+.tree ul ul  li{
+    cursor: text;
 }
