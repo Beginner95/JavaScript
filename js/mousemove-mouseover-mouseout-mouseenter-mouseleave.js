@@ -1,52 +1,112 @@
 'use strict';
 
-var showingTooltip;
-
-document.onmouseover = function(e) {
-    var target = e.target;
-
-    while (target !== this) {
-        var tooltip = target.getAttribute('data-tooltip');
-        if (tooltip) break;
-        target = target.parentNode;
-    }
-
-    if (!tooltip) return;
-
-    showingTooltip = showTooltip(tooltip, target);
-}
-
-document.onmouseout = function() {
-    if (showingTooltip) {
-        document.body.removeChild(showingTooltip);
-        showingTooltip = false;
-    }
-}
-
-
-function showTooltip(text, elem) {
+let updateTime = function() {
+    let clock = document.getElementById('elem');
+    let date = new Date();
     
-    var tooltipElem = document.createElement('div');
-    tooltipElem.className = 'tooltip';
-    tooltipElem.innerHTML = text;
-    document.body.appendChild(tooltipElem);
-
-    var coords = elem.getBoundingClientRect();
-
-    var left = coords.left + (elem.offsetWidth - tooltipElem.offsetWidth) / 2;
-    if (left < 0) {
-        left = 0; 
-    }
-
-
-    var top = coords.top - tooltipElem.offsetHeight - 5;
+    let hours = date.getHours();
+    clock.children[0].innerHTML = hours;
     
-    if (top < 0) {
-        top = coords.top + elem.offsetHeight + 5;
+    let minutes = date.getMinutes();
+    clock.children[1].innerHTML = minutes;
+    
+    let seconds = date.getSeconds();
+    clock.children[2].innerHTML = seconds;
+}
+
+
+let HoverIntent = function (options) {
+    options = Object.create(options);
+    options.interval = options.interval || 100;
+    
+    options.sensitivity = options.sensitivity || 0.1;
+    let elem = options.elem;
+    
+    let cX, cY, pX, pY, cTime, pTime;
+    let checkSpeedInterval, isOverElement, isHover;
+    
+    elem.addEventListener('mouseover', onMouseOver);
+    elem.addEventListener('mouseout', onMouseOut);
+    
+    function onMouseOver(event) {
+        if (isOverElement) return;
+        
+        isOverElement = true;
+        
+        pX = event.pageX;
+        pY = event.pageY;
+        
+        pTime = Date.now();
+        
+        elem.addEventListener('mousemove', onMouseMove);
+        checkSpeedInterval = setInterval(trackSpeed, options.interval);
+    }
+    
+
+
+    function onMouseOut(event) {
+        if (!event.relatedTarget || !elem.contains(event.relatedTarget)) {
+            isOverElement = false;
+            elem.removeEventListener('mousemove', onMouseMove);
+            clearInterval(checkSpeedInterval);
+            
+            if (isHover) {
+                options.out.call(elem, event);
+                isHover = false;
+            }
+        }
     }
 
-    tooltipElem.style.left = left + 'px';
-    tooltipElem.style.top = top + 'px';
+    let onMouseMove = function(event) {
+        cX = event.pageX;
+        cY = event.pageY;
+        cTime = Date.now();
+    }
 
-    return tooltipElem;
+    let trackSpeed = function(event) {
+        let speed;
+        
+        if (!cTime || cTime == pTime) {
+            speed = 0;
+        } else {
+            speed = Math.sqrt(Math.pow(pX - cX, 2) + Math.pow(pY - cY, 2)) / (cTime - pTime);
+        }
+        
+        if (speed < options.sensitivity) {
+            clearInterval(checkSpeedInterval);
+            isHover = true;
+            options.over.call(elem, event);
+        } else {
+            pX = cX;
+            pY = cY;
+            pTime = cTime;
+        }
+    }
+    
+    this.destroy = function() {
+        elem.removeEventListener('mousemove', onMouseMove);
+        elem.removeEventListener('mouseover', onMouseOver);
+        elem.removeEventLIstener('mouseout', onMouseOut);
+    }
+
 }
+
+setInterval(function() {
+    new HoverIntent({
+        elem: elem,
+        over: function() {
+            tooltip.hidden = false;
+        },
+        out: function() {
+            tooltip.hidden = true;
+        }
+    });
+}, 2000);
+
+let clockStart = function() {
+    setInterval(updateTime, 1000);
+    updateTime();
+}
+
+clockStart();
+
