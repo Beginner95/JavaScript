@@ -1,21 +1,48 @@
-.slider {
-  border-radius: 5px;
-  background: #E0E0E0;
-  background: -moz-linear-gradient(left top, #E0E0E0, #EEEEEE) repeat scroll 0 0 transparent;
-  background: -webkit-gradient(linear, left top, right bottom, from(#E0E0E0), to(#EEEEEE));
-  background: linear-gradient(left top, #E0E0E0, #EEEEEE);
-  width: 310px;
-  height: 15px;
-  margin: 5px;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.thumb {
-  width: 10px;
-  height: 25px;
-  border-radius: 3px;
-  position: relative;
-  left: 10px;
-  top: -5px;
-  background: blue;
+#field {
+  background: url(/img/field.png);
+  width: 800px;
+  height: 600px;
+  float: left;
+}
+/* герои и мяч (переносимые элементы) */
+
+.hero {
+  background: url(/img/heroes.png);
+  width: 130px;
+  height: 128px;
+  float: left;
+}
+
+#hero1 {
+  background-position: 0 0;
+}
+
+#hero2 {
+  background-position: 0 -128px;
+}
+
+#hero3 {
+  background-position: -120px 0;
+}
+
+#hero4 {
+  background-position: -125px -128px;
+}
+
+#hero5 {
+  background-position: -248px -128px;
+}
+
+#hero6 {
+  background-position: -244px 0;
+}
+
+.draggable {
   cursor: pointer;
 }

@@ -1,43 +1,83 @@
 'use strict';
-let sliderElem = document.getElementById('slider');
-let thumbElem = sliderElem.children[0];
 
-thumbElem.onmousedown = function(e) {
+document.onmousedown = function(e) {
+    let dragElement = e.target;
     
-    let thumbCoords = getCoords(thumbElem);
-    let shiftX = e.pageX - thumbCoords.left;
-    let sliderCoords = getCoords(sliderElem);
-
+    if (!dragElement.classList.contains('draggable')) return;
+    
+    let coords, shiftX, shiftY;
+    
+    startDrag(e.clientX, e.clientY);
+    
     document.onmousemove = function(e) {
-        let newLeft = e.pageX - shiftX - sliderCoords.left;
+        moveAt(e.clientX, e.clientY);
+    };
+    
+    dragElement.onmouseup = function() {
+        finishDrag();
+    };
+    
+    function startDrag(clientX, clientY) {
+        shiftX = clientX - dragElement.getBoundingClientRect().left;
+        shiftY = clientY - dragElement.getBoundingClientRect().top;
         
-        if (newLeft < 0) {
-            newLeft = 0;
-        }
+        dragElement.style.position = 'fixed';
         
-        let rightEdge = sliderElem.offsetWidth - thumbElem.offsetWidth;
+        document.body.appendChild(dragElement);
         
-        if (newLeft > rightEdge) {
-            newLeft = rightEdge;
-        }
+        moveAt(clientX, clientY);
+    };
+    
+    function finishDrag() {
+        dragElement.style.top = parseInt(dragElement.style.top) + pageYOffset + 'px';
+        dragElement.style.position = 'absolute';
         
-        thumbElem.style.left = newLeft + 'px';
+        document.onmousemove = null;
+        dragElement.onmouseup = null;
     }
     
-    document.onmouseup = function() {
-        document.onmousemove = document.onmouseup = null;
-    };
-    return false;
-};
-
-thumbElem.ondragstart = function() {
-    return false;
-}
-
-function getCoords(elem) {
-    let box = elem.getBoundingClientRect();
-    return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
+    function moveAt(clientX, clientY) {
+        let newX = clientX - shiftX;
+        let newY = clientY - shiftY;
+        let newBottom = newY + dragElement.offsetHeight;
+        
+        if (newBottom > document.documentElement.clientHeight) {
+            let docBottom = document.documentElement.getBoundingClientRect().bottom;
+            
+            let scrollY = Math.min(docBottom - newBottom, 10);
+            
+            if (scrollY < 0) {
+                scrollY = 0;
+            }
+            
+            window.scrollBy(0, scrollY);
+            
+            newY = Math.min(newY, document.documentElement.clientHeight - dragElement.offsetHeight);
+        }
+        
+        if (newY < 0) {
+            let scrollY = Math.min(-newY, 10);
+            
+            if (scrollY < 0) {
+                scrollY = 0;
+            }
+            
+            window.scrollBy(0, -scrollY);
+            
+            newY = Math.max(newY, 0);
+        }
+        
+        if (newX < 0) {
+            newX = 0;
+        }
+        
+        if (newX > document.documentElement.clientWidth - dragElement.offsetHeight) {
+            newX = document.documentElement.clientWidth - dragElement.offsetheight;
+        }
+        
+        dragElement.style.left = newX + 'px';
+        dragElement.style.top = newY + 'px';
     }
+    
+    return false;
 }
