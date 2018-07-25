@@ -7,14 +7,10 @@
 </head>
 <body>
 
-<div id="elem" class="clock">
-    <span class="hours">h</span> :
-    <span class="minutes">m</span> :
-    <span class="seconds">s</span>
+<div id="slider" class="slider">
+    <div class="thumb"></div>
 </div>
 
-<div id="tooltip" hidden>Message Tooltip</div>
-
-<script src="/js/mousemove-mouseover-mouseout-mouseenter-mouseleave.js"></script>
+<script src="/js/drag-and-drop.js"></script>
 </body>
 </html>
