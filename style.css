@@ -1,48 +1,7 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#field {
-  background: url(/img/field.png);
-  width: 800px;
-  height: 600px;
-  float: left;
-}
-/* герои и мяч (переносимые элементы) */
-
-.hero {
-  background: url(/img/heroes.png);
-  width: 130px;
-  height: 128px;
-  float: left;
-}
-
-#hero1 {
-  background-position: 0 0;
-}
-
-#hero2 {
-  background-position: 0 -128px;
-}
-
-#hero3 {
-  background-position: -120px 0;
-}
-
-#hero4 {
-  background-position: -125px -128px;
-}
-
-#hero5 {
-  background-position: -248px -128px;
-}
-
-#hero6 {
-  background-position: -244px 0;
-}
-
-.draggable {
-  cursor: pointer;
+#txt{
+    margin: 30% auto;
+    width: 200px;
+    height:60px;
+    border: 1px solid red;
+    cursor: crosshair;
 }
