@@ -1,32 +1,16 @@
 'use strict';
 
-let addOnWheel = function(elem, handler) {
-    if (elem.addEventListener) {
-        if('onwheel' in document) {
-            elem.addEventListener('wheel', handler);
-        } else if ('onmousewheel' in document) {
-            elem.addEventListener('mousewheel', handler);
-        } else {
-            elem.addEventListener('MozMousePixelScroll', handler);
-        }
-    } else {
-        txt.attachEvent('onmousewheel', handler);
-    }
-}
+document.onwheel = function(e) {
+  if (e.target.tagName != 'TEXTAREA') return;
+  let area = e.target;
 
-let scale = 1;
+  let delta = e.deltaY || e.detail || e.wheelDelta;
 
-addOnWheel(txt, function(e) {
-    let delta = e.deltaY || e.detail || e.wheelDelta;
-    
-    if (delta > 0 ) {
-        scale += 0.05;
-    } else {
-        scale -= 0.05;
-    }
-    
-    txt.style.transform = txt.style.WebkitTransform = txt.style.MsTransform = 'scale(' + scale + ')';
-    
+  if (delta < 0 && area.scrollTop == 0) {
     e.preventDefault();
-    
-});
+  }
+
+  if (delta > 0 && area.scrollHeight - area.clientHeight - area.scrollTop <= 1) {
+    e.preventDefault();
+  }
+};

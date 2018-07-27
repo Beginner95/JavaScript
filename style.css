@@ -1,7 +1,9 @@
-#txt{
-    margin: 30% auto;
-    width: 200px;
-    height:60px;
-    border: 1px solid red;
-    cursor: crosshair;
+body{
+    height: 1000px;
+    position: relative
+}
+
+footer{
+    position: absolute;
+    bottom: 0
 }
