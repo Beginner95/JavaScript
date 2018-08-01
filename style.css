@@ -1,53 +1,34 @@
-.fixed{
+body,
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#matrix {
+    width: 415px;
+    margin: auto;
+    overflow: auto;
+    text-align: justify;
+}
+
+#updown {
+    height: 18px;
+    width: 25px;
+    color: green;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
 }
 
-.face{
-    background-color: #FFCC00;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    margin: 50px;
-    border-radius: 400px;
+#updown.up::before {
+    font-size: 30px;
+    content: '▲';
 }
 
-.eye{
-    background-color: #fff;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 50px;
-    left: 25px;
-    border-radius: 50px;
-}
-
-.eye.right{
-    right: 25px;
-    left: auto;
-}
-
-.pupil{
-    background-color: #000;
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 36%;
-    left: 50%;
-    border-radius: 100px;
-}
-
-.eye.right .pupil{
-    left: 44%;
-}
-
-.mouth{
-    background-color: red;
-    position: absolute;
-    width: 200px;
-    height: 100px;
-    top: 60%;
-    left: 50%;
-    margin-left: -100px;
+#updown.down::before {
+    font-size: 30px;
+    content: '▼';
 }
