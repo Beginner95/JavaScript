@@ -7,9 +7,6 @@
 </head>
 <body>
 
-Ваш возраст
-<input type="text">
-
 <script src="/js/keyboard-events.js"></script>
 </body>
 </html>

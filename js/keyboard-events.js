@@ -1,41 +1,37 @@
 'use strict';
 
-let input = document.getElementsByTagName('input')[0];
-
-input.onkeypress = function(e) {
-    //c(e);
-    e = e || event;
-    if (e.ctrlKey || e.altKey || e.metaKey) {
-        return;
-    }
+function runOnKeys(func) {
+    let codes = [].slice.call(arguments, 1);
+    let pressed = {};
     
-    let chr = getChar(e);
-    
-    if (chr == null) {
-        return;
-    }
-    
-    if (chr < '0' || chr > '9') {
-        return false;
-    }
-};
-
-let getChar = function(event) {
-    if (event.which == null) {
-        if (event.keyCode < 32) {
-            return null;
+    document.onkeydown = function(e) {
+        e = e || window.event;
+        
+        pressed[e.keyCode] = true;
+        
+        for (var i = 0; i < codes.length; i++) {
+            if (!pressed[codes[i]]) {
+                return;
+            }
         }
-        return String.fromCharCode(event.keyCode);
-    }
+        
+        pressed = {};
+        func();
+    };
     
-    if (event.which != 0 && event.charCode != 0) {
-        if (event.which < 32) {
-            return null;
-        }
-        return String.fromCharCode(event.which);
-    }
-    return null;
-};
+    document.onkeyup = function(e) {
+        e = e || window.event;
+        delete pressed[e.keyCode];
+    };
+}
+
+runOnKeys(
+    function() {
+        c('Вы нажали одновременно на E и F');
+    },
+    "E".charCodeAt(0),
+    "F".charCodeAt(0)
+);
 
 function c(str)
 {
