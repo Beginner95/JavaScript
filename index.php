@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<p>Красивый placeholder:</p>
-<input type="email" data-placeholder="E-mail">
+<div id="circle" tabindex="0"></div>
 
 <script src="/js/focus-blur.js"></script>
 </body>
