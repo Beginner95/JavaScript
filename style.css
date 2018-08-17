@@ -1,34 +1,10 @@
-body,
-html {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+.placeholder {
+    color: blue;
+    font-family: Georgia;
 }
 
-#matrix {
-    width: 415px;
-    margin: auto;
-    overflow: auto;
-    text-align: justify;
-}
-
-#updown {
-    height: 18px;
-    width: 25px;
-    color: green;
+.placeholder-tooltip {
+    color: blue;
+    font-family: Georgia;
     position: fixed;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-}
-
-#updown.up::before {
-    font-size: 30px;
-    content: '▲';
-}
-
-#updown.down::before {
-    font-size: 30px;
-    content: '▼';
 }

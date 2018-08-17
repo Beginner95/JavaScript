@@ -6,13 +6,9 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<p>Красивый placeholder:</p>
+<input type="email" data-placeholder="E-mail">
 
-
-<select name="music">
-    <option value="Rock">Рок</option>
-    <option value="Blues" selected>Блюз</option>
-</select>
-
-<script src="/js/form-elements.js"></script>
+<script src="/js/focus-blur.js"></script>
 </body>
 </html>
