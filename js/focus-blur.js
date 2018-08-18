@@ -1,26 +1,37 @@
 'use strict';
 
-document.getElementById('circle').onclick = function() {
-    this.style.left = this.getBoundingClientRect().left + 'px';
-    this.style.top = this.getBoundingClientRect().top + 'px';
-    this.style.position = 'fixed';
-};
-
-document.getElementById('circle').onkeydown = function(e) {
-    //console.log(e);
-
-    switch (e.keyCode) {
-        case 37: //left
-            this.style.left = parseInt(this.style.left) - this.offsetWidth + 'px';
-            return false;
-        case 38: //top
-            this.style.top = parseInt(this.style.top) - this.offsetHeight + 'px';
-            return false;
-        case 39: //righ
-            this.style.left = parseInt(this.style.left) + this.offsetWidth + 'px';
-            return false;
-        case 40: //bottom
-            this.style.top = parseInt(this.style.top) + this.offsetHeight + 'px';
-            return false;
+document.onkeydown = function(e) {
+    if (e.keyCode == 27) {
+        cancel();
+        return false;
+    }
+    
+    if ((e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)) && !txtarea.offsetHeight) {
+        edit();
+        return false;
+    }
+    
+    if ((e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) && txtarea.offsetHeight) {
+        save();
+        return false;
     }
 };
+
+function cancel() {
+    txtarea.style.display = 'none';
+    view.style.display = 'block';
+}
+
+function edit() {
+    view.style.display = 'none';
+    txtarea.value = view.innerHTML;
+    txtarea.style.display = 'block';
+    txtarea.focus();
+}
+
+function save() {
+    txtarea.style.display = 'none';
+    view.innerHTML = txtarea.value;
+    view.style.display = 'block';
+    //console.log(view);
+}

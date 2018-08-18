@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div id="circle" tabindex="0"></div>
-
+<p>Ctrl-E для начала редактирования.</p>
+<p>Во время редактирования: Ctrl-S для сохранения, Esc для отмены.</p>
+<textarea id="txtarea"></textarea>
+<div id="view">Text</div>
 <script src="/js/focus-blur.js"></script>
 </body>
 </html>

@@ -1,17 +1,22 @@
-#circle {
-    display: inline-block;
-    margin: 0;
-    background: #ccc;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
+#view,
+#txtarea {
+  height: 150px;
+  width: 400px;
+  font-family: arial;
+  font-size: 14px;
 }
 
-#circle:focus {
-    outline: none;
-    border: 2px solid black;
-    padding: 4px;
-    border-radius: 50%;
+#view {
+  padding: 2px;
+  border: 1px solid black;
+}
+
+#txtarea {
+  display: none;
+  border: 3px groove blue;
+  padding: 0px;
+}
+
+#txtarea:focus {
+  outline: none;
 }
