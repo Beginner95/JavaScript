@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<p>Ctrl-E для начала редактирования.</p>
-<p>Во время редактирования: Ctrl-S для сохранения, Esc для отмены.</p>
-<textarea id="txtarea"></textarea>
-<div id="view">Text</div>
+  Введите текст(например, пароль) с нажатым CapsLock:
+  <input type="text" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" />
+
+  <div style="display:none;color:red" id="capsIndicator">Внимание: нажат CapsLock!</div>
+
 <script src="/js/focus-blur.js"></script>
 </body>
 </html>

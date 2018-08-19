@@ -1,37 +1,60 @@
 'use strict';
 
-document.onkeydown = function(e) {
-    if (e.keyCode == 27) {
-        cancel();
-        return false;
+let capsLockEnabled = null;
+
+function getChar(event) {
+    if (event.which == null) {
+        if (event.keyCode < 32) {
+            return null;
+        } else {
+            return String.fromCharCode(event.keyCode);
+        }
     }
     
-    if ((e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)) && !txtarea.offsetHeight) {
-        edit();
-        return false;
+    if (event.which != 0 && event.charCode != 0) {
+        if (event.which < 32) {
+            return null;
+        } else {
+            return String.fromCharCode(event.which);
+        }
     }
     
-    if ((e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) && txtarea.offsetHeight) {
-        save();
-        return false;
+    return null;
+}
+
+if (navigator.platform.substr(0, 3) != 'Mac') {
+    document.onkeydown = function(e) {
+        if (e.keyCode == 20 && capsLockEnabled !== null) {
+            capsLockEnabled = !capsLockEnabled;
+        }
     }
-};
-
-function cancel() {
-    txtarea.style.display = 'none';
-    view.style.display = 'block';
 }
 
-function edit() {
-    view.style.display = 'none';
-    txtarea.value = view.innerHTML;
-    txtarea.style.display = 'block';
-    txtarea.focus();
+document.onkeypress = function(e) {
+    e = e || event;
+    
+    let chr = getChar(e);
+    
+    if (!chr) {
+        return;
+    }
+    
+    if (chr.toLowerCase() == chr.toUpperCase()) {
+        return;
+    }
+    
+    capsLockEnabled = (chr.toLowerCase() == chr && e.shiftKey) || (chr.toUpperCase() == chr && !e.shiftKey);
 }
 
-function save() {
-    txtarea.style.display = 'none';
-    view.innerHTML = txtarea.value;
-    view.style.display = 'block';
-    //console.log(view);
+
+function checkCapsWarning() {
+    document.getElementById('capsIndicator').style.display = capsLockEnabled ? 'block' : 'none';
 }
+
+
+function removeCapsWarning() {
+    document.getElementById('capsIndicator').style.display = 'none';
+}
+
+
+
