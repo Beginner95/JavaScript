@@ -1,22 +1,14 @@
-#view,
-#txtarea {
-  height: 150px;
-  width: 400px;
-  font-family: arial;
-  font-size: 14px;
+td select,
+td input {
+    width: 150px;
 }
 
-#view {
-  padding: 2px;
-  border: 1px solid black;
+#diagram td{
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
 }
 
-#txtarea {
-  display: none;
-  border: 3px groove blue;
-  padding: 0px;
-}
-
-#txtarea:focus {
-  outline: none;
+#diagram div{
+    margin: auto;
 }
