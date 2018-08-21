@@ -2,59 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Навигация и свойства элементов формы</title>
+	<title>Формы: отправка, событие и метод submit</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<form name="calc">
-    <table>
-        <tr>
-            <td>Сумма</td>
-            <td>
-                <input name="money" type="text" value="1000">
-            </td>
-        </tr>
-        <tr>
-            <td>Срок в месяцах</td>
-            <td>
-                <select name="months">           
-                    <option value="3">3 (минимум)</option>
-                    <option value="6">6 (полгода)</option>
-                    <option value="12" selected>12 (год)</option>
-                    <option value="18">18 (1.5 года)</option>
-                    <option value="24">24 (2 года)</option>
-                    <option value="30">30 (2.5 года)</option>
-                    <option value="36">36 (3 года)</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>С капитализацией</td>
-            <td>
-                <input name="capitalization" type="checkbox">
-            </td>
-            
-        </tr>
-    </table>
-</form>
+<h3>Нажмите на кнопку</h3>
 
-<table id="diagram">
-    <tr>
-      <th>Было:</th>
-      <th>Станет:</th>
-    </tr>
-    <tr>
-      <th id="money-before"></th>
-      <th id="money-after"></th>
-    </tr>
-    <td>
-      <div style="background: red;width:40px;height:100px"></div>
-    </td>
-    <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
-    </td>
-  </table>
+<input type="button" value="Увидеть форму" id="show-button">
 
-<script src="/js/events-change.js"></script>
+
+<div id="prompt-form-container">
+    <form id="prompt-form">
+        <div id="prompt-message"></div>
+        <input name="text" type="text">
+        <input type="submit" value="Ок">
+        <input type="button" name="cancel" value="Отмена">
+    </form>
+</div>
+
+<script src="/js/forms-submit.js"></script>
 </body>
 </html>
