@@ -1,76 +1,42 @@
 'use strict';
 
-function hideCover() {
-    document.body.removeChild(document.getElementById('cover-div'));
+function showError(container, errorMessage) {
+    container.className = 'error';
+    let msgElem = document.createElement('span');
+    msgElem.className = 'error-message';
+    msgElem.innerHTML = errorMessage;
+    container.appendChild(msgElem);
 }
 
-function showCover() {
-    let coverDiv = document.createElement('div');
-    coverDiv.id = 'cover-div';
-    document.body.appendChild(coverDiv);
+function resetError(container) {
+    container.className = '';
+    if (container.lastChild.className == 'error-message') {
+        container.removeChild(container.lastChild);
+    }
 }
 
-function showPrompt(text, callback) {
-    showCover();
-    let form = document.getElementById('prompt-form');
-    let container = document.getElementById('prompt-form-container');
-    document.getElementById('prompt-message').innerHTML = text;
-    form.elements.text.value = '';
+function validate(form) {
+    let elems = form.elements;
     
-    function complete(value) {
-        hideCover();
-        container.style.display = 'none';
-        document.onkeydown = null;
-        callback(value);
+    resetError(elems.from.parentNode);
+    if (!elems.from.value) {
+        showError(elems.from.parentNode, 'Укажите отправителя');
     }
     
-    form.onsubmit = function() {
-        let value = form.elements.text.value;
-        if (value == '') {
-            return false;
-        }
-        
-        complete(value);
-        return false;
-    };
+    resetError(elems.password.parentNode);
+    if (!elems.password.value) {
+        showError(elems.password.parentNode, ' Придумайте пароль ');
+    } else if (elems.password.value != elems.password2.value) {
+        showError(elems.password.parentNode, ' Пароли не совпадают ');
+    }
     
-    form.elements.cancel.onclick = function() {
-        complete(null);
-    };
+    resetError(elems.to.parentNode);
+    if (!elems.to.value) {
+        showError(elems.to.parentNode, ' Укажите получателя ');
+    }
     
-    document.onkeydown = function(e) {
-        if (e.keyCode == 27) {
-            complete(null);
-        }
-    };
-    
-    let lastElem = form.elements[form.elements.length -1];
-    let firstElem = form.elements[0];
-    
-    lastElem.onkeydown = function(e) {
-        if (e.keyCode == 9 && !e.shiftKey) {
-            firstElem.focus();
-            return false;
-        }
-    };
-    
-    firstElem.onkeydown = function(e) {
-        if (e.keyCode == 9 && e.shiftKey) {
-            lastElem.focus();
-            return false;
-        }
-    };
-    
-    container.style.display = 'block';
-    form.elements.text.focus();
+    resetError(elems.message.parentNode);
+    if (!elems.message.value) {
+        showError(elems.message.parentNode, ' Вы ничего не ввели');
+    }
 }
-
-document.getElementById('show-button').onclick = function() {
-    showPrompt('Введите что-нибудь', function(value) {
-        alert('Вы ввели ' + value);
-    });
-}
-
-
-
-
