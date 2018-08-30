@@ -1,15 +1,11 @@
-td select, td input  {
-    width: 150px;
+.hour {
+  color: green
 }
 
-label {
-    display: block;
+.min {
+  color: blue
 }
 
-.error input, .error textarea {
-    border: 1px solid red;
-}
-
-.error {
-    color: red;
+.sec {
+  color: red
 }

@@ -4,41 +4,25 @@
 	<meta charset="UTF-8">
 	<title>Формы: отправка, событие и метод submit</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="/js/widgets-structure.js"></script>
 </head>
 <body>
 
-<form>
-    <table>
-        <tr>
-            <td>От кого</td>
-            <td><input type="text" name="from"></td>
-        </tr>
-        <tr>
-            <td>Ваш пароль</td>
-            <td><input type="password" name="password">
-        </tr>
-        <tr>
-            <td>Повторите пароль</td>
-            <td><input type="password" name="password2"></td>
-        </tr>
-        <tr>
-            <td>Куда</td>
-            <td>
-                <select name="to">
-                    <option value="1">Отдел снабжения</option>
-                    <option value="2">Отдел разработки</option>
-                    <option value="3">Директору</option>
-                </select>
-            </td>
-        </tr>
-    </table>
-    Сообщение:
-    <label>
-        <textarea name="message" style="display:block; width:400px; height:80px"></textarea>
-    </label>
-    <input type="button" onclick="validate(this.form)" value="Проверить">
-</form>
+<div id="clock" class="clock">
+    <span class="hour">00</span>:<span class="min">00</span>:<span class="sec">00</span>
+  </div>
 
-<script src="/js/forms-submit.js"></script>
+  <script>
+    let pageClock = new Clock({
+      elem: document.getElementById('clock')
+    });
+  </script>
+
+  <input type="button" onclick="pageClock.start()" value="Старт">
+  <input type="button" onclick="pageClock.stop()" value="Стоп">
+
+  <input type="button" onclick="alert('Часы должны останавливаться во время alert,\nи продолжать корректно работать после нажатия на ОК')" value="alert для проверки корректного возобновления">
+
+
 </body>
 </html>
