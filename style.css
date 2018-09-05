@@ -1,7 +1,10 @@
-.selected {
-  background: #ddd;
+.voter {
+    font-family: Consolas, "Lucida Console", monospace;
+    font-size: 18px;
 }
 
-li {
-  cursor: pointer;
+.up, .down {
+    cursor: pointer;
+    color: blue;
+    font-weight: bold;
 }
