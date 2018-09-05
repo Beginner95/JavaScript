@@ -1,63 +1,74 @@
-function Slider(options) {
+'use strict';
+
+let listSelect = new ListSelect({
+    elem: document.querySelector('ul')
+});
+
+function ListSelect(options) {
     let elem = options.elem;
-    let thumbElem = elem.querySelector('.thumb');
-    let sliderCoords, thumbCoords, shiftX, shiftY;
+    let lastClickedLi = null;
     
-    elem.ondragstart = function() {
+    elem.onmousedown = function() {
         return false;
     };
     
-    elem.onmousedown = function(event) {
-        if (event.target.closest('.thumb')) {
-            startDrag(event.clientX, event.clientY);
-            return false;
+    elem.onclick = function(e) {
+        let li = e.target.closest('li');
+        
+        if (!li) {
+            return;
+        }
+        
+        if (e.metaKey || e.ctrlKey) {
+            toggleSelect(li);
+        } else if (e.shiftKey) {
+            selectFromLast(li);
+        } else {
+            selectSingle(li);
+        }
+        
+        lastClickedLi = li;
+    };
+    
+    function deselectAll() {
+        [].forEach.call(elem.children, function(child) {
+            child.classList.remove('selected');
+        });
+    }
+    
+    function toggleSelect(li) {
+        li.classList.toggle('selected');
+    }
+    
+    function selectSingle(li) {
+        deselectAll();
+        li.classList.add('selected');
+    }
+    
+    function selectFromLast(target) {
+        let startElem = lastClickedLi || elem.children[0];
+        
+        target.classList.add('selected');
+        if (startElem == target) {
+            return;
+        }
+        
+        let isLastClickedBefore = startElem.compareDocumentPosition(target) & 4;
+        
+        if (isLastClickedBefore) {
+            for (let elem = startElem; elem != target; elem = elem.nextElementSibling) {
+                elem.classList.add('selected');
+            }
+        } else {
+            for (let elem = startElem; elem != target; elem = elem.previousElementSibling) {
+                elem.classList.add('selected');
+            }
         }
     }
     
-    function startDrag(startClientX, startClientY) {
-        thumbCoords = thumbElem.getBoundingClientRect();
-        shiftX = startClientX - thumbCoords.left;
-        shiftY = startClientY - thumbCoords.top;
-        
-        sliderCoords = elem.getBoundingClientRect();
-        
-        document.addEventListener('mousemove', onDocumentMouseMove);
-        document.addEventListener('mouseup', onDocumentMouseUp);
-    }
-    
-    function moveTo(clientX) {
-        let newLeft = clientX - shiftX - sliderCoords.left;
-        
-        if (newLeft < 0) {
-            newLeft = 0;
-        }
-        
-        let rightEdge = elem.offsetWidth - thumbElem.offsetWidth;
-        
-        if (newLeft > rightEdge) {
-            newLeft = rightEdge;
-        }
-        
-        thumbElem.style.left = newLeft + 'px';
-    }
-    
-    function onDocumentMouseMove(e) {
-        //console.log(e);
-        moveTo(e.clientX);
-    }
-    
-    function onDocumentMouseUp() {
-        endDrag();
-    }
-    
-    function endDrag() {
-        document.removeEventListener('mousemove', onDocumentMouseMove);
-        document.removeEventListener('moseup', onDocumentMouseUp);
-    }
+    this.getSelected = function() {
+        return [].map.call(elem.querySelectorAll('.selected'), function(li) {
+            return li.innerHTML;
+        });
+    };
 }
-
-let slider = new Slider({
-    elem: document.getElementById('slider')
-});
-
-//console.log(slider);
