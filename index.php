@@ -7,14 +7,12 @@
     <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
 </head>
 <body>
-<div id="voter" class="voter">
-    <span class="down">-</span>
-    <span class="vote">0</span>
-    <span class="up">+</span>
-</div>
 
+<div id="slider" class="slider">
+    <div class="thumb"></div>
+</div>
+Slider: <span id="slide">0</span>
 
 <script src="/js/custom-events.js"></script>
-
 </body>
 </html>
