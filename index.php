@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<progress id="my-progress" max="100"></progress>
-
+<progress id="my-progress" max="100" value=""></progress>
+<span id="status-progress"></span>
 <script src="/js/progress.js"></script>
 </body>
 </html>

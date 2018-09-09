@@ -1,21 +1,23 @@
-//'use strict';
+'use strict';
 
 function myProgress(time) {
-    
     let start = 0;
-    let time = Math.round(time * 10);
+    let timer = Math.round(time * 10);
     let progressElem = document.getElementById('my-progress');
-    
-    let intervalId = setTimeout(function(){
-
+    let statusProgress = document.getElementById('status-progress');
+    let intervalId = setInterval(function(){
+        
         if (start > 100) {
             clearInterval(intervalId);
+            alert('Прогресс загрузки заверщен!');
         } else {
             progressElem.value = start;
+            statusProgress.innerHTML = start + '%';
         }
         
         start++;
-    }, time);
+        
+    }, timer);
 }
 
-myProgress(4);
+myProgress(2);

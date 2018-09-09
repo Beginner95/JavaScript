@@ -1,0 +1,10 @@
+#my-progress {
+    height:20px;
+}
+
+#status-progress {
+    position: absolute;
+    z-index: 999;
+    left: 76px;
+    top: 10px;
+}
