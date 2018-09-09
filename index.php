@@ -4,15 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Коллбэки и события на компонентах</title>
     <link rel="stylesheet" href="/style.css">
-    <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
 </head>
 <body>
+<progress id="my-progress" max="100"></progress>
 
-<div id="slider" class="slider">
-    <div class="thumb"></div>
-</div>
-Slider: <span id="slide">0</span>
-
-<script src="/js/custom-events.js"></script>
+<script src="/js/progress.js"></script>
 </body>
 </html>
