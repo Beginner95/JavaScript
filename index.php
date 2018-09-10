@@ -6,8 +6,15 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
 <progress id="my-progress" max="100" value=""></progress>
+
 <span id="status-progress"></span>
+
+<input class="input" id="uploadInput" type="file">
+<div id="e-fileinfo"></div>
+
+
 <script src="/js/progress.js"></script>
 </body>
 </html>
