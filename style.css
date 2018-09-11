@@ -3,8 +3,10 @@
 }
 
 #status-progress {
-    position: absolute;
-    z-index: 999;
-    left: 76px;
-    top: 10px;
+    display: block;
+}
+
+#details {
+    margin-top: 10px;
+    display: none;
 }
