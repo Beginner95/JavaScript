@@ -7,13 +7,13 @@
 </head>
 <body>
 
-<progress id="my-progress" max="100" value=""></progress>
-
-<span id="status-progress"></span>
-
-<input class="input" id="uploadInput" type="file">
-<div id="e-fileinfo"></div>
-
+<form id="up_from" enctype="multipart/form-data" method="post">
+    <input type="file" name="file1" id="file1"></br>
+    <input type="buttom" value="Загрузить файл" onclick="uploadFile()">
+    <progress id="my-progress" max="100" value=""></progress>
+    <span id="status-progress"></span>
+    <span id="loaded_n_total"></span>
+</form>
 
 <script src="/js/progress.js"></script>
 </body>
