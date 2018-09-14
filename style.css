@@ -1,12 +1,10 @@
-#my-progress {
-    height:20px;
+#flyjet {
+    width: 40px;
+    height: 24px;
+    transition: all 3s;
 }
 
-#status-progress {
-    display: block;
-}
-
-#details {
-    margin-top: 10px;
-    display: none;
+#flyjet.growing {
+    width: 400px;
+    height: 240px;
 }

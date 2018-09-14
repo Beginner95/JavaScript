@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Основы XMLHttpRequest</title>
+	<title>CSS-анимации</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<button id="button" onclick="loadPhones()">Загрузить список телефонов</button>
-<ul id="list"></ul>
-<script src="/js/ajax-xmlhttprequest.js"></script>
+<img id="flyjet" src="https://js.cx/clipart/flyjet.jpg">
+
+<script src="/js/css-transitions.js"></script>
 </body>
 </html>
