@@ -1,7 +1,12 @@
+img {
+    display: block;
+    cursor: pointer;
+}
+
 #flyjet {
     width: 40px;
     height: 24px;
-    transition: all 3s;
+    transition: all 3s cubic-bezier(0.25, 1.5, 0.75, 1.5);
 }
 
 #flyjet.growing {
