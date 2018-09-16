@@ -3,11 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CSS-анимации</title>
+    <script src="https://js.cx/libs/animate.js"></script>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<img id="flyjet" src="https://js.cx/clipart/flyjet.jpg">
+<div id="field">
+    <img src="/img/ball.png" width="40" height="40" id="ball">
+</div>
 
-<script src="/js/css-transitions.js"></script>
+<script src="/js/js-animation.js"></script>
 </body>
 </html>
