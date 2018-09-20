@@ -20,6 +20,18 @@ ctx.arc(180, 60, 40, 0, 2*pi, false);
 ctx.stroke();
 ctx.fill();
 
+ctx.clearRect(0, 0, 700, 300);
+
+canvas.onmousemove = function(e) {
+    let x = e.offsetY;
+    ctx.clearRect(0, 0, 700, 300);
+    ctx.beginPath();
+    ctx.arc(150, 75, Math.abs(x-200), 0, 2*pi, false);
+    ctx.stroke();
+    ctx.fill();
+}
+
+
 function _(el) {
     return document.getElementById(el);
 }
