@@ -1,6 +1,7 @@
 'use strict';
 
 let canvas = _('canvas');
+let radiusInfo = _('radius');
 let ctx = canvas.getContext('2d');
 let pi = Math.PI;
 
@@ -23,14 +24,16 @@ ctx.fill();
 ctx.clearRect(0, 0, 700, 300);
 
 canvas.onmousemove = function(e) {
-    let x = e.offsetY;
+    let x = e.offsetX;
+    let y = e.offsetY;
     ctx.clearRect(0, 0, 700, 300);
     ctx.beginPath();
-    ctx.arc(150, 75, Math.abs(x-200), 0, 2*pi, false);
+    let radius = Math.pow(Math.pow(x-200, 2) + Math.pow(y-100, 2), 0.5);
+    radiusInfo.innerHTML = Math.round(radius) + ' px';
+    ctx.arc(150, 75, radius, 0, 2*pi, false);
     ctx.stroke();
     ctx.fill();
 }
-
 
 function _(el) {
     return document.getElementById(el);
