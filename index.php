@@ -9,7 +9,7 @@
 <body>
 
 <canvas id="canvas"></canvas>
-<div class="radius">Radius: <span id="radius"></span></div>
+
 <script src="/js/canvas.js"></script>
 </body>
 </html>
