@@ -7,14 +7,18 @@ let isMoseDown = false;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+ctx.lineWidth = 5 * 2;
 canvas.addEventListener('mousemove', function(event) {
     //c(event);
     //c(isMoseDown);
     if (true === isMoseDown) {
+        ctx.lineTo(event.clientX, event.clientY);
+        ctx.stroke();
         ctx.beginPath();
-        ctx.arc(event.clientX, event.clientY, 30, 0, pi * 2);
+        ctx.arc(event.clientX, event.clientY, 5, 0, pi * 2);
         ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(event.clientX, event.clientY);
     }
 });
 
@@ -24,6 +28,7 @@ canvas.addEventListener('mousedown', function(){
 
 canvas.addEventListener('mouseup', function(){
     isMoseDown = false;
+    ctx.beginPath();
 });
 
 
