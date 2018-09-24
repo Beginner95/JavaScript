@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<form id="elem">
+    <input type="number" id="R">
+    <input type="number" id="r">
+    <input type="number" id="d">
+</form>
 
 <canvas id="canvas"></canvas>
 
