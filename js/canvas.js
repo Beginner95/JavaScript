@@ -3,45 +3,85 @@
 let canvas = _('canvas');
 let ctx = canvas.getContext('2d');
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+canvas.height = 800;
+canvas.width = 800;
 
-let R = +_('R').value, 
-    r = +_('r').value,
-    d = +_('d').value,
-    teta = 0,
+const pixel = 20;
+
+
+let teta = 0,
     timer;
 
-let inp = _('elem');
-let inputs = inp.getElementsByTagName('input');
+let btn = _('button');
 
-for (let i = 0; i < inputs.length; i++) {
-    let input = inputs[i];
-    input.onblur = function(e) {
-        if (true === (e.target.id == 'R')) {
-            R = +e.target.value
-        } else if (true === (e.target.id == 'r')) {
-            r = +e.target.value
-        } else if (true === (e.target.id == 'd')) {
-            d = +e.target.value
-        } else {
-            R = 0;
-            r = 0;
-            d = 0;
-        }
-        spiro();
+btn.onclick = function(e) {
+    if (btn.className == 'run') {
+        e.target.className = 'stop';
+        e.target.innerHTML = 'Run'
+    } else {
+        e.target.className = 'run';
+        e.target.innerHTML = 'Stop'
+    }
+    spiro();
+}
+
+function spiro() {
+    if ('run' == btn.className) {
+        let R = +_('R').value, 
+            r = +_('r').value, 
+            d = +_('d').value, 
+            speed = +_('speed').value,
+            color = _('color').value;
+        let x = (R - r) * Math.cos(teta) + d * Math.cos( (R - r) * teta / r);
+        let y = (R - r) * Math.sin(teta) - d * Math.sin( (R - r) * teta / r);
+        teta = teta + 0.1;
+        ctx.fillStyle = color;
+        ctx.fillRect(300 + x, 300 + y, 4, 4);
+        c(speed);
+        timer = setTimeout(spiro, speed);
     }
 }
-    
-function spiro() {    
-    let x = (R - r) * Math.cos(teta) + d * Math.cos( (R - r) * teta / r);
-    let y = (R - r) * Math.sin(teta) - d * Math.sin( (R - r) * teta / r);
-    teta = teta + 0.1;
-    ctx.fillRect(300 + x, 300 + y, 4, 4);
-    timer = setTimeout(spiro, 10);
+
+function drawLine(x1, y1, x2, y2, color = '#f1f1f1') {
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineJoin = 'miter';
+    ctx.lineWidth = 1;
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
 }
 
-//spiro();
+function drawCell(x, y, w, h) {
+    ctx.fillStyle = 'blue';
+    ctx.strokeStyle = 'blue';
+    ctx.lineJoin = 'miter';
+    ctx.lineWidth = 1;
+    ctx.rect(x, y, w, h);
+    ctx.fill();
+}
+
+function clear() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawGrid() {
+    const w = canvas.width;
+    const h = canvas.height;
+    const p = w / pixel;
+    const xStep = w / p;
+    const yStep = h / p;
+    
+    for (let x = 0; x < w; x+= xStep) {
+        drawLine(x, 0, x, h);
+    }
+    
+    for (let y = 0; y < h; y += yStep) {
+        drawLine(0, y, w, y);
+    }
+}
+
+drawGrid();
 
 function _(el) {
     return document.getElementById(el);
