@@ -29,7 +29,8 @@
         <td>Color: </td>
         <td><input type="text" id="color" value="#ff0101"></td>
     <tr>
-        <td colspan="2"><button id="button">Run</button></td>
+        <td><button id="button">Run</button></td>
+        <td><button id="button_clear">Clear</button></td>
     </tr>
 </table>
 </div>

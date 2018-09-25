@@ -13,6 +13,10 @@ let teta = 0,
     timer;
 
 let btn = _('button');
+let btn_clear = _('button_clear');
+btn_clear.onclick = function() {
+    clear();
+}
 
 btn.onclick = function(e) {
     if (btn.className == 'run') {
@@ -23,6 +27,7 @@ btn.onclick = function(e) {
         e.target.innerHTML = 'Stop'
     }
     spiro();
+    drawGrid();
 }
 
 function spiro() {
@@ -80,8 +85,6 @@ function drawGrid() {
         drawLine(0, y, w, y);
     }
 }
-
-drawGrid();
 
 function _(el) {
     return document.getElementById(el);
