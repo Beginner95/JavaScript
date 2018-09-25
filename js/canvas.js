@@ -16,6 +16,7 @@ let btn = _('button');
 let btn_clear = _('button_clear');
 btn_clear.onclick = function() {
     clear();
+    drawGrid();
 }
 
 btn.onclick = function(e) {
@@ -27,7 +28,6 @@ btn.onclick = function(e) {
         e.target.innerHTML = 'Stop'
     }
     spiro();
-    drawGrid();
 }
 
 function spiro() {
@@ -85,6 +85,8 @@ function drawGrid() {
         drawLine(0, y, w, y);
     }
 }
+
+drawGrid();
 
 function _(el) {
     return document.getElementById(el);
