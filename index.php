@@ -28,6 +28,15 @@
     <tr>
         <td>Color: </td>
         <td><input type="text" id="color" value="#ff0101"></td>
+    </tr>
+    <tr>
+        <td>X: </td>
+        <td><input type="number" id="X" value="200"></td>
+    </tr>
+    <tr>
+        <td>Y: </td>
+        <td><input type="number" id="Y" value="200"></td>
+    </tr>
     <tr>
         <td><button id="button">Run</button></td>
         <td><button id="button_clear">Clear</button></td>

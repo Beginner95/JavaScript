@@ -36,13 +36,14 @@ function spiro() {
             r = +_('r').value, 
             d = +_('d').value, 
             speed = +_('speed').value,
-            color = _('color').value;
+            color = _('color').value,
+            Y = +_('Y').value,
+            X = +_('X').value;
         let x = (R - r) * Math.cos(teta) + d * Math.cos( (R - r) * teta / r);
         let y = (R - r) * Math.sin(teta) - d * Math.sin( (R - r) * teta / r);
         teta = teta + 0.1;
         ctx.fillStyle = color;
-        ctx.fillRect(300 + x, 300 + y, 4, 4);
-        c(speed);
+        ctx.fillRect(X + x, Y + y, 4, 4);
         timer = setTimeout(spiro, speed);
     }
 }
