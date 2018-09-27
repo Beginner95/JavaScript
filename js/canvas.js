@@ -4,7 +4,7 @@ let canvas = _('canvas');
 let ctx = canvas.getContext('2d');
 
 canvas.height = 800;
-canvas.width = 800;
+canvas.width = 1000;
 
 const pixel = 20;
 

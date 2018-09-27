@@ -21,20 +21,18 @@
         <td>d: </td>
         <td><input type="number" id="d" value="20"></td>
     </tr>
+    <tr><td colspan="2"><br></td></tr>
     <tr>
         <td>Speed: </td>
         <td><input type="number" id="speed" value="30"></td>
-    </tr>
-    <tr>
         <td>Color: </td>
         <td><input type="text" id="color" value="#ff0101"></td>
     </tr>
     <tr>
-        <td>X: </td>
-        <td><input type="number" id="X" value="200"></td>
-    </tr>
     <tr>
-        <td>Y: </td>
+        <td>O/x: </td>
+        <td><input type="number" id="X" value="200"></td>
+        <td>O/y: </td>
         <td><input type="number" id="Y" value="200"></td>
     </tr>
     <tr>
@@ -43,7 +41,7 @@
     </tr>
 </table>
 </div>
-
+<br>
 <canvas id="canvas"></canvas>
 
 <script src="/js/canvas.js"></script>
