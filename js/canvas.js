@@ -36,7 +36,7 @@ function spiro() {
             r = +_('r').value, 
             d = +_('d').value, 
             speed = +_('speed').value,
-            color = _('color').value,
+            color = '#' + _('color').value,
             Y = +_('Y').value,
             X = +_('X').value;
         let x = (R - r) * Math.cos(teta) + d * Math.cos( (R - r) * teta / r);

@@ -26,7 +26,7 @@
         <td>Speed: </td>
         <td><input type="number" id="speed" value="30"></td>
         <td>Color: </td>
-        <td><input type="text" id="color" value="#ff0101"></td>
+        <td><input type="text" id="color" value="ff0101"></td>
     </tr>
     <tr>
     <tr>
