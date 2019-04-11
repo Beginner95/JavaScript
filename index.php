@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Array Sort</title>
+	<title>Objects</title>
 </head>
 <body>
-<script src="/js/array_sort.js"></script>
+<script src="/js/object_lesson.js"></script>
 </body>
 </html>
